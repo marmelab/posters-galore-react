@@ -2,6 +2,7 @@
   "name": "posters-galore-react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/marmelab/posters-galore-react",
   "dependencies": {
     "data-generator-retail": "2.9.3",
     "fakerest": "2.1.0",
@@ -15,6 +16,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -33,5 +36,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "2.0.1"
   }
 }
