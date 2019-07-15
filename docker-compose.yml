@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  app:
+    working_dir: /app
+    image: node:12
+    ports:
+    - 3000:3000
+    volumes:
+    - .:/app
+    command: "yarn start"
+    user: "${UID}:${GID}"
