@@ -2,7 +2,7 @@
   "name": "posters-galore-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/marmelab/posters-galore-react",
+  "homepage": "http://marmelab.com/posters-galore-react/",
   "dependencies": {
     "data-generator-retail": "2.9.3",
     "fakerest": "2.1.0",
