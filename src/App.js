@@ -1,8 +1,17 @@
 import React from 'react';
-import { Admin } from 'react-admin';
-import generator from 'data-generator-retail';
+import { Admin, Resource } from 'react-admin';
+import dataProvider from './dataProvider'
+import UserIcon from '@material-ui/icons/Group';
 
-const dataProvider = generator();
-const App = () => <Admin dataProvider={dataProvider} />;
+import { initBackend } from './backend';
+import { CustomerList } from './customers'
+
+initBackend();
+
+const App = () =>
+  <Admin dataProvider={dataProvider}>
+    <Resource name="customers" list={CustomerList} icon={UserIcon} />
+  </Admin>
+  ;
 
 export default App;

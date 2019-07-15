@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "data-generator-retail": "2.9.3",
+    "fakerest": "2.1.0",
+    "fetch-mock": "7.3.6",
     "prop-types": "15.7.2",
     "ra-data-json-server": "2.9.4",
     "react": "16.8.6",
