@@ -6,6 +6,9 @@ env:
 node_js:
   - "12"
 
+cache:
+  yarn: true
+
 services:
   - docker
 
