@@ -9,3 +9,6 @@ install: ## Build the docker container
 
 start: ## Run the demo.
 	docker-compose up
+
+test:
+	docker-compose run --rm app yarn test

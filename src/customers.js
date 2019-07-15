@@ -2,8 +2,8 @@ import React from 'react';
 import { List, Datagrid, TextField, BooleanField, DateField } from 'react-admin';
 
 export const CustomerList = props => (
-    <List {...props}>
-        <Datagrid rowClick="edit">
+    <List {...props} sort={{ field: 'last_seen', order: 'DESC' }}>
+        <Datagrid>
             <TextField source="first_name" />
             <TextField source="last_name" />
             <DateField source="first_seen" />
