@@ -1,20 +1,14 @@
 language: node_js
 
-env:
-  - DOCKER_COMPOSE_VERSION=1.21.2
-
 node_js:
   - "12"
 
 cache:
   yarn: true
 
-services:
-  - docker
+install: yarn install
 
-install: make install
-
-script: make test
+script: yarn test --watchAll=false
 
 branches:
   only:
