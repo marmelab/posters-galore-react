@@ -20,7 +20,8 @@
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "e2e": "cypress run"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "cypress": "3.4.0",
     "gh-pages": "2.0.1"
   }
 }
