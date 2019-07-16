@@ -15,3 +15,11 @@ stop: ## Stop the demo.
 
 test: ## Run the tests.
 	docker-compose run --rm app yarn test
+
+cypress-run:
+	CYPRESS_CACHE_FOLDER=.cache/cypress yarn test:e2e:setup
+	CYPRESS_CACHE_FOLDER=.cache/cypress yarn test:e2e
+
+cypress-open:
+	CYPRESS_CACHE_FOLDER=.cache/cypress yarn test:e2e:setup
+	CYPRESS_CACHE_FOLDER=.cache/cypress yarn test:e2e:open

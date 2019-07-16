@@ -10,3 +10,6 @@ services:
     - .:/app
     command: "yarn start"
     user: "${UID}:${GID}"
+    environment:
+      - YARN_CACHE_FOLDER=/app/.cache/yarn
+      - CYPRESS_CACHE_FOLDER=/app/.cache/cypress

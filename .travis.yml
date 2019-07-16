@@ -13,7 +13,7 @@ cache:
   directories:
     - ~/.cache
 
-install: yarn install
+install: yarn install --pure-lockfile
 
 script:
   - yarn test:e2e:ci
