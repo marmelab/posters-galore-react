@@ -15,7 +15,9 @@ cache:
 
 install: yarn install
 
-script: yarn run e2e
+script:
+  - yarn start
+  - yarn run e2e
 
 branches:
   only:
