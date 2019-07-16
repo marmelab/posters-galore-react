@@ -9,4 +9,4 @@ export const initBackend = () => {
     restServer.toggleLogging();
     restServer.init(generator());
     fetchMock.mock(`begin:${API_URL}`, restServer.getHandler());
-}
+};

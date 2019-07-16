@@ -1,7 +1,16 @@
 import React from 'react';
-import { List, Datagrid, TextField, BooleanField, DateField, Filter, TextInput, DateInput } from 'react-admin';
+import {
+    List,
+    Datagrid,
+    TextField,
+    BooleanField,
+    DateField,
+    Filter,
+    TextInput,
+    DateInput,
+} from 'react-admin';
 
-const CustomerFilter = (props) => (
+const CustomerFilter = props => (
     <Filter {...props}>
         <TextInput label="Search" source="q" alwaysOn />
         <DateInput source="last_seen_gte" label="Visited Since" />

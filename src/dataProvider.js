@@ -42,8 +42,11 @@ const convertDataProviderRequestToHTTP = (type, resource, params) => {
             const { field, order } = params.sort;
             const query = {
                 sort: JSON.stringify([field, order]),
-                range: JSON.stringify([(page - 1) * perPage, (page * perPage) - 1]),
-                filter: JSON.stringify({ ...params.filter, [params.target]: params.id }),
+                range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
+                filter: JSON.stringify({
+                    ...params.filter,
+                    [params.target]: params.id,
+                }),
             };
             return { url: `${API_URL}/${resource}?${stringify(query)}` };
         }
@@ -55,7 +58,10 @@ const convertDataProviderRequestToHTTP = (type, resource, params) => {
         case CREATE:
             return {
                 url: `${API_URL}/${resource}`,
-                options: { method: 'POST', body: JSON.stringify(params.data) },
+                options: {
+                    method: 'POST',
+                    body: JSON.stringify(params.data),
+                },
             };
         case DELETE:
             return {
@@ -80,7 +86,13 @@ const convertHTTPResponseToDataProvider = (response, type, resource, params) => 
         case GET_LIST:
             return {
                 data: json.map(x => x),
-                total: parseInt(headers.get('content-range').split('/').pop(), 10),
+                total: parseInt(
+                    headers
+                        .get('content-range')
+                        .split('/')
+                        .pop(),
+                    10,
+                ),
             };
         case CREATE:
             return { data: { ...params.data, id: json.id } };
@@ -98,6 +110,7 @@ const convertHTTPResponseToDataProvider = (response, type, resource, params) => 
 export default (type, resource, params) => {
     const { fetchJson } = fetchUtils;
     const { url, options } = convertDataProviderRequestToHTTP(type, resource, params);
-    return fetchJson(url, options)
-        .then(response => convertHTTPResponseToDataProvider(response, type, resource, params));
+    return fetchJson(url, options).then(response =>
+        convertHTTPResponseToDataProvider(response, type, resource, params),
+    );
 };
