@@ -21,7 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "e2e": "cypress run"
+    "test:e2e": "cypress run",
+    "test:e2e:ci": "concurrently --kill-others --success=first 'yarn start --progress=false --no-info' 'yarn test:e2e'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "concurrently": "4.1.1",
     "cypress": "3.4.0",
     "gh-pages": "2.0.1"
   }

@@ -1,8 +1,16 @@
 import React from 'react';
-import { List, Datagrid, TextField, BooleanField, DateField } from 'react-admin';
+import { List, Datagrid, TextField, BooleanField, DateField, Filter, TextInput, DateInput } from 'react-admin';
+
+const CustomerFilter = (props) => (
+    <Filter {...props}>
+        <TextInput label="Search" source="q" alwaysOn />
+        <DateInput source="last_seen_gte" label="Visited Since" />
+        <DateInput source="last_seen_lte" label="Visited To" />
+    </Filter>
+);
 
 export const CustomerList = props => (
-    <List {...props} sort={{ field: 'last_seen', order: 'DESC' }}>
+    <List {...props} filters={<CustomerFilter />} sort={{ field: 'last_seen', order: 'DESC' }}>
         <Datagrid>
             <TextField source="first_name" />
             <TextField source="last_name" />
