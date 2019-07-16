@@ -10,5 +10,8 @@ install: ## Build the docker container
 start: ## Run the demo.
 	docker-compose up
 
-test:
+stop: ## Stop the demo.
+	docker-compose down
+
+test: ## Run the tests.
 	docker-compose run --rm app yarn test
