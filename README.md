@@ -18,7 +18,7 @@ Start the demo
 make start
 ```
 
-## Start
+## Stop
 
 Stop the demo
 
