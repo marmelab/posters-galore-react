@@ -1,0 +1,23 @@
+language: node_js
+
+node_js:
+  - "12"
+
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
+
+cache:
+  yarn: true
+  directories:
+    - ~/.cache
+
+install: yarn install --pure-lockfile
+
+script:
+  - yarn test:e2e:ci
+
+branches:
+  only:
+    - master
