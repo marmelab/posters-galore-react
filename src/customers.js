@@ -8,6 +8,10 @@ import {
     Filter,
     TextInput,
     DateInput,
+    EditButton,
+    Edit,
+    TabbedForm,
+    FormTab,
 } from 'react-admin';
 
 const DEFAULT_SORT = { field: 'last_seen', order: 'DESC' };
@@ -20,6 +24,24 @@ const CustomerFilter = props => (
     </Filter>
 );
 
+export const CustomerEdit = props => (
+    <Edit {...props}>
+        <TabbedForm>
+            <FormTab label="Identity">
+                <TextInput source="first_name" />
+                <TextInput source="last_name" />
+                <TextInput source="email" />
+                <DateInput source="birthday" />
+            </FormTab>
+            <FormTab label="Address">
+                <TextInput source="address" />
+                <TextInput source="zipcode" />
+                <TextInput source="city" />
+            </FormTab>
+        </TabbedForm>
+    </Edit>
+);
+
 export const CustomerList = props => (
     <List {...props} filters={<CustomerFilter />} sort={DEFAULT_SORT}>
         <Datagrid>
@@ -29,6 +51,7 @@ export const CustomerList = props => (
             <DateField source="last_seen" />
             <DateField source="latest_purchase" />
             <BooleanField source="has_newsletter" />
+            <EditButton />
         </Datagrid>
     </List>
 );
