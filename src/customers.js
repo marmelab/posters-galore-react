@@ -10,6 +10,8 @@ import {
     DateInput,
 } from 'react-admin';
 
+const DEFAULT_SORT = { field: 'last_seen', order: 'DESC' };
+
 const CustomerFilter = props => (
     <Filter {...props}>
         <TextInput label="Search" source="q" alwaysOn />
@@ -19,7 +21,7 @@ const CustomerFilter = props => (
 );
 
 export const CustomerList = props => (
-    <List {...props} filters={<CustomerFilter />} sort={{ field: 'last_seen', order: 'DESC' }}>
+    <List {...props} filters={<CustomerFilter />} sort={DEFAULT_SORT}>
         <Datagrid>
             <TextField source="first_name" />
             <TextField source="last_name" />

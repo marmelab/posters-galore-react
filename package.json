@@ -9,6 +9,7 @@
         "fetch-mock": "^7.3.6",
         "prop-types": "^15.7.2",
         "ra-data-json-server": "^2.9.4",
+        "ra-data-simple-rest": "^2.9.4",
         "react": "^16.8.6",
         "react-admin": "^2.9.4",
         "react-dom": "^16.8.6",

@@ -3671,9 +3671,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.122, electron-to-chromium@^1.3.191:
-  version "1.3.191"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.191.tgz#c451b422cd8b2eab84dedabab5abcae1eaefb6f0"
-  integrity sha512-jasjtY5RUy/TOyiUYM2fb4BDaPZfm6CXRFeJDMfFsXYADGxUN49RBqtgB7EL2RmJXeIRUk9lM1U6A5yk2YJMPQ==
+  version "1.3.193"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.193.tgz#de9b89959288070bffb14557daf8cf9f75b2caf8"
+  integrity sha512-WX01CG1UoPtTUFaKKwMn+u8nJ63loP6hNxePWtk1pN8ibWMyX1q6TiWPsz1ABBKXezvmaIdtP+0BwzjC1wyCaw==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -5384,10 +5384,15 @@ ip@^1.1.0, ip@^1.1.5:
   resolved "https://registry.yarnpkg.com/ip/-/ip-1.1.5.tgz#bdded70114290828c0a039e72ef25f5aaec4354a"
   integrity sha1-vd7XARQpCCjAoDnnLvJfWq7ENUo=
 
-ipaddr.js@1.9.0, ipaddr.js@^1.9.0:
+ipaddr.js@1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.9.0.tgz#37df74e430a0e47550fe54a2defe30d8acd95f65"
   integrity sha512-M4Sjn6N/+O6/IXSJseKqHoFc+5FdGJ22sXqnjTpdZweHK64MzEPAyQZyEU3R/KRv2GLoa7nNtg/C2Ev6m7z+eA==
+
+ipaddr.js@^1.9.0:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.9.1.tgz#bff38543eeb8984825079ff3a2a8e6cbd46781b3"
+  integrity sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==
 
 is-absolute-url@^2.0.0:
   version "2.1.0"
@@ -8786,6 +8791,14 @@ ra-data-json-server@^2.9.4:
   version "2.9.4"
   resolved "https://registry.yarnpkg.com/ra-data-json-server/-/ra-data-json-server-2.9.4.tgz#e9af068aab967b32fbf2af243aaba5002d859237"
   integrity sha512-n1p4nGE3ITBRG0rFADwFWg+K/5JgXYLcI4mrBg9TkKamhXH1Ba1QeScf55pdHiRjBgSTNEo0ls+MyBu+/6Qopg==
+  dependencies:
+    query-string "~5.1.1"
+    ra-core "^2.9.4"
+
+ra-data-simple-rest@^2.9.4:
+  version "2.9.4"
+  resolved "https://registry.yarnpkg.com/ra-data-simple-rest/-/ra-data-simple-rest-2.9.4.tgz#28accc16d06a21da873697105a86c56e54d700d8"
+  integrity sha512-hsNbGhjCf7i3R66PKekmysSSGw5hI6RLapOocfmi6HdEZHAW3A1tUt6amtbyP8Cs9rNQDm1WjzxrYg/n05Ht5A==
   dependencies:
     query-string "~5.1.1"
     ra-core "^2.9.4"
