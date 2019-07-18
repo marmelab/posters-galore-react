@@ -54,6 +54,6 @@ export const SegmentsField = ({ record }) => (
 );
 SegmentsField.defaultProps = { label: SEGMENT_LABEL };
 
-export const SegmentSelectArrayInput = () => (
-    <SelectArrayInput label={SEGMENT_LABEL} source="groups" choices={SEGMENT_CHOICES} />
+export const SegmentSelectArrayInput = props => (
+    <SelectArrayInput {...props} label={SEGMENT_LABEL} choices={SEGMENT_CHOICES} />
 );

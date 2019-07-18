@@ -22,7 +22,7 @@ const CustomerFilter = props => (
         <TextInput label="Search" source="q" alwaysOn />
         <DateInput source="last_seen_gte" label="Visited Since" />
         <DateInput source="last_seen_lte" label="Visited To" />
-        <SegmentSelectArrayInput />
+        <SegmentSelectArrayInput source="groups" />
     </Filter>
 );
 
@@ -41,7 +41,7 @@ export const CustomerEdit = props => (
                 <TextInput source="city" />
             </FormTab>
             <FormTab label="Stats">
-                <SegmentSelectArrayInput />
+                <SegmentSelectArrayInput source="groups" />
             </FormTab>
         </TabbedForm>
     </Edit>
