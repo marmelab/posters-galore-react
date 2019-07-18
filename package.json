@@ -9,11 +9,7 @@
         "fetch-mock": "^7.3.6",
         "prop-types": "^15.7.2",
         "ra-data-json-server": "^2.9.4",
-        "ra-data-simple-rest": "^2.9.4",
-        "react": "^16.8.6",
-        "react-admin": "^2.9.4",
-        "react-dom": "^16.8.6",
-        "react-scripts": "^3.0.1"
+        "ra-data-simple-rest": "^2.9.4"
     },
     "scripts": {
         "start": "react-scripts start",
@@ -24,6 +20,7 @@
         "eject": "react-scripts eject",
         "test:e2e:setup": "cypress install",
         "test:e2e": "cypress run",
+        "test:e2e:open": "cypress open",
         "test:e2e:ci": "concurrently --kill-others --success=first 'yarn start --progress=false --no-info' 'yarn test:e2e'"
     },
     "eslintConfig": {
@@ -42,9 +39,14 @@
         ]
     },
     "devDependencies": {
+        "react": "^16.8.6",
+        "react-admin": "^2.9.4",
+        "react-dom": "^16.8.6",
+        "react-scripts": "^3.0.1",
         "concurrently": "^4.1.1",
         "cypress": "^3.4.0",
-        "eslint-config-prettier": "^6.0.0",
+        "eslint": "^5.16.0",
+        "eslint-config-prettier": "^5.1.0",
         "eslint-plugin-prettier": "^3.1.0",
         "eslint-plugin-react": "^7.14.2",
         "gh-pages": "^2.0.1",

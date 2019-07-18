@@ -3,7 +3,7 @@ import { Admin, Resource } from 'react-admin';
 import UserIcon from '@material-ui/icons/Group';
 
 import { buildProvider } from './backend';
-import { CustomerList } from './customers';
+import { CustomerList, CustomerEdit } from './customers';
 
 const App = () => {
     const [dataProvider, setDataProvider] = useState(null);
@@ -21,7 +21,7 @@ const App = () => {
     }
     return (
         <Admin dataProvider={dataProvider}>
-            <Resource name="customers" list={CustomerList} icon={UserIcon} />
+            <Resource name="customers" list={CustomerList} icon={UserIcon} edit={CustomerEdit} />
         </Admin>
     );
 };
