@@ -13,6 +13,7 @@ import {
     TabbedForm,
     FormTab,
 } from 'react-admin';
+import { SegmentsField, SegmentSelectArrayInput } from './segments';
 
 const DEFAULT_SORT = { field: 'last_seen', order: 'DESC' };
 
@@ -21,6 +22,7 @@ const CustomerFilter = props => (
         <TextInput label="Search" source="q" alwaysOn />
         <DateInput source="last_seen_gte" label="Visited Since" />
         <DateInput source="last_seen_lte" label="Visited To" />
+        <SegmentSelectArrayInput />
     </Filter>
 );
 
@@ -38,6 +40,9 @@ export const CustomerEdit = props => (
                 <TextInput source="zipcode" />
                 <TextInput source="city" />
             </FormTab>
+            <FormTab label="Stats">
+                <SegmentSelectArrayInput />
+            </FormTab>
         </TabbedForm>
     </Edit>
 );
@@ -51,6 +56,7 @@ export const CustomerList = props => (
             <DateField source="last_seen" />
             <DateField source="latest_purchase" />
             <BooleanField source="has_newsletter" />
+            <SegmentsField />
             <EditButton />
         </Datagrid>
     </List>
