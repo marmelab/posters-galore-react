@@ -4,6 +4,7 @@ import { MenuItemLink, getResources, Responsive } from 'react-admin';
 import { withRouter } from 'react-router-dom';
 import LabelIcon from '@material-ui/icons/Label';
 import { withStyles } from '@material-ui/core/styles';
+import { compose } from 'recompose';
 
 import { SEGMENT_LABEL } from '../customer/segments';
 
@@ -13,7 +14,7 @@ const styles = {
     },
 };
 
-const Menu = withStyles(styles)(({ classes, resources, onMenuClick, logout }) => (
+const Menu = ({ classes, resources, onMenuClick, logout }) => (
     <div>
         {resources
             .filter(resource => resource.name !== 'categories')
@@ -36,10 +37,14 @@ const Menu = withStyles(styles)(({ classes, resources, onMenuClick, logout }) =>
         />
         <Responsive small={logout} medium={null} />
     </div>
-));
+);
 
 const mapStateToProps = state => ({
     resources: getResources(state),
 });
 
-export default withRouter(connect(mapStateToProps)(Menu));
+export default compose(
+    withStyles(styles),
+    withRouter,
+    connect(mapStateToProps),
+)(Menu);
