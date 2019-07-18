@@ -56,7 +56,7 @@ export const CustomerList = props => (
             <DateField source="last_seen" />
             <DateField source="latest_purchase" />
             <BooleanField source="has_newsletter" />
-            <SegmentsField />
+            <SegmentsField source="groups" label="Segments" />
             <EditButton />
         </Datagrid>
     </List>

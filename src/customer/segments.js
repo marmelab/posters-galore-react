@@ -1,6 +1,6 @@
 import React from 'react';
 import { SelectArrayInput, Title } from 'react-admin';
-
+import PropTypes from 'prop-types';
 import {
     Button,
     Card,
@@ -11,6 +11,7 @@ import {
     TableHead,
     TableRow,
 } from '@material-ui/core';
+import get from 'lodash/get';
 
 const SEGMENTS = ['collector', 'compulsive', 'ordered_once', 'regular', 'returns', 'reviewer'];
 
@@ -49,10 +50,15 @@ export const SegmentList = () => (
     </Card>
 );
 
-export const SegmentsField = ({ record }) => (
-    <div>{record.groups && record.groups.map(item => <Chip key={item} label={item} />)}</div>
-);
-SegmentsField.defaultProps = { label: SEGMENT_LABEL };
+export const SegmentsField = ({ record, source }) => {
+    const groups = get(record, source);
+    return <div>{groups && groups.map(item => <Chip key={item} label={item} />)}</div>;
+};
+
+SegmentsField.prototype = {
+    record: PropTypes.object.isRequired,
+    source: PropTypes.string.isRequired,
+};
 
 export const SegmentSelectArrayInput = props => (
     <SelectArrayInput {...props} label={SEGMENT_LABEL} choices={SEGMENT_CHOICES} />
