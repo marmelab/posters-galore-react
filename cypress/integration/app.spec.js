@@ -21,4 +21,11 @@ describe('Global app Tests', () => {
         cy.get('button[type="submit"]').click();
         cy.contains('Element updated');
     });
+
+    it('Filter customers using segment page', () => {
+        cy.visit('/');
+        cy.contains('Segments').click();
+        cy.contains('Customers').click();
+        cy.url().should('include', '/#/customers?filter=');
+    });
 });
