@@ -6,7 +6,7 @@ import { Route } from 'react-router-dom';
 import { buildProvider } from './backend';
 import { CustomerList, CustomerEdit } from './customer/customers';
 import AppLayout from './layout/AppLayout';
-import { SegmentCard } from './customer/segments';
+import { SegmentList } from './customer/segments';
 
 const App = () => {
     const [dataProvider, setDataProvider] = useState(null);
@@ -26,7 +26,7 @@ const App = () => {
         <Admin
             appLayout={AppLayout}
             dataProvider={dataProvider}
-            customRoutes={[<Route exact path="/segments" component={SegmentCard} />]}
+            customRoutes={[<Route exact path="/segments" component={SegmentList} />]}
         >
             <Resource name="customers" list={CustomerList} icon={UserIcon} edit={CustomerEdit} />
         </Admin>
