@@ -1,7 +1,7 @@
 describe('Global app Tests', () => {
     it('Visit the app', () => {
         cy.visit('/');
-        cy.contains('Customers');
+        cy.contains('customers').click();
         cy.contains('Add filter').click();
         cy.contains('Visited Since');
         cy.contains('Visited To');
@@ -9,6 +9,7 @@ describe('Global app Tests', () => {
 
     it('Edit customer address', () => {
         cy.visit('/');
+        cy.contains('customers').click();
         cy.contains('Edit').click();
         cy.contains('Identity');
         cy.contains('Address').click();
@@ -25,7 +26,26 @@ describe('Global app Tests', () => {
     it('Filter customers using segment page', () => {
         cy.visit('/');
         cy.contains('Segments').click();
-        cy.contains('Customers').click();
+        cy.get('a[role="button"]')
+            .first()
+            .click();
         cy.url().should('include', '/#/customers?filter=');
+    });
+
+    it('Add a new product', () => {
+        cy.visit('/');
+        cy.contains('Products').click();
+        cy.contains('Create').click();
+        cy.get('input[name="image"]').type('http://fgdgdfgdg');
+        cy.get('input[name="thumbnail"]').type('http://fgdgdfgdg');
+        cy.contains('Details').click();
+        cy.get('input[name="reference"]').type('sdzpiOjfvdf1');
+        cy.get('input[name="width"]').type('450');
+        cy.get('input[name="height"]').type('10');
+        cy.get('input[name="price"]').type('1000');
+        cy.get('input[name="stock"]').type('1');
+        cy.get('button[type="submit"]').click();
+        cy.get('button[type="submit"]').click();
+        cy.contains('Element updated');
     });
 });
