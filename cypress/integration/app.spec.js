@@ -18,9 +18,8 @@ describe('Global app Tests', () => {
         cy.get('input[name="zipcode"]')
             .clear()
             .type('75000');
-        /* the following lines does not terminate the test when running on CI
         cy.get('button[type="submit"]').click();
-        cy.contains('Element updated');*/
+        cy.contains('Element updated');
     });
 
     it('Filter customers using segment page', () => {
