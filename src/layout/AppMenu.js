@@ -1,6 +1,6 @@
 import React, { createElement } from 'react';
 import { connect } from 'react-redux';
-import { MenuItemLink, getResources } from 'react-admin';
+import { MenuItemLink, getResources, Responsive } from 'react-admin';
 import { withRouter } from 'react-router-dom';
 import LabelIcon from '@material-ui/icons/Label';
 
@@ -13,7 +13,7 @@ const Menu = ({ resources, onMenuClick, logout }) => (
                 key={resource.name}
                 to={`/${resource.name}`}
                 primaryText={(resource.options && resource.options.label) || resource.name}
-                leftIcon={createElement(resource.icon)}
+                leftIcon={resource.icon && createElement(resource.icon)}
                 onClick={onMenuClick}
             />
         ))}
@@ -23,6 +23,7 @@ const Menu = ({ resources, onMenuClick, logout }) => (
             leftIcon={<LabelIcon />}
             onClick={onMenuClick}
         />
+        <Responsive small={logout} medium={null} />
     </div>
 );
 

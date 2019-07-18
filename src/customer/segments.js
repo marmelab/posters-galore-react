@@ -21,7 +21,7 @@ const SEGMENT_CHOICES = SEGMENTS.map(item => ({
 
 export const SEGMENT_LABEL = 'Segments';
 
-export const SegmentCard = () => (
+export const SegmentList = () => (
     <Card>
         <Title title={SEGMENT_LABEL} />
         <Table>
