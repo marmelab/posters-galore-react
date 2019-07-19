@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Admin, Resource, ListGuesser } from 'react-admin';
+import { Admin, Resource } from 'react-admin';
 import UserIcon from '@material-ui/icons/Group';
 import CollectionsIcon from '@material-ui/icons/Collections';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import { Route } from 'react-router-dom';
 
 import { buildProvider } from './backend';
@@ -11,6 +12,7 @@ import AppLayout from './layout/AppLayout';
 import { SegmentList } from './customer/segments';
 import { ProductList, ProductCreate, ProductEdit } from './product/products';
 import { CategoryList } from './product/categories';
+import { CommandList, CommandEdit } from './order/orders';
 
 const App = () => {
     const [dataProvider, setDataProvider] = useState(null);
@@ -32,6 +34,13 @@ const App = () => {
             dataProvider={dataProvider}
             customRoutes={[<Route exact path="/segments" component={SegmentList} />]}
         >
+            <Resource
+                name="commands"
+                list={CommandList}
+                icon={AttachMoneyIcon}
+                edit={CommandEdit}
+                options={{ label: 'Orders' }}
+            />
             <Resource
                 name="products"
                 list={ProductList}
