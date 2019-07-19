@@ -9,7 +9,8 @@
         "fetch-mock": "^7.3.6",
         "prop-types": "^15.7.2",
         "ra-data-json-server": "^2.9.4",
-        "ra-data-simple-rest": "^2.9.4"
+        "ra-data-simple-rest": "^2.9.4",
+        "ra-input-rich-text": "^2.9.3"
     },
     "scripts": {
         "start": "react-scripts start",
@@ -39,10 +40,6 @@
         ]
     },
     "devDependencies": {
-        "react": "^16.8.6",
-        "react-admin": "^2.9.4",
-        "react-dom": "^16.8.6",
-        "react-scripts": "^3.0.1",
         "concurrently": "^4.1.1",
         "cypress": "^3.4.0",
         "eslint": "^5.16.0",
@@ -50,6 +47,10 @@
         "eslint-plugin-prettier": "^3.1.0",
         "eslint-plugin-react": "^7.14.2",
         "gh-pages": "^2.0.1",
-        "prettier": "^1.18.2"
+        "prettier": "^1.18.2",
+        "react": "^16.8.6",
+        "react-admin": "^2.9.4",
+        "react-dom": "^16.8.6",
+        "react-scripts": "^3.0.1"
     }
 }
