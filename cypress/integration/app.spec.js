@@ -48,4 +48,13 @@ describe('Global app Tests', () => {
         cy.get('button[type="submit"]').click();
         cy.contains('Element updated').should('be.visible');
     });
+
+    it('Filter products using category page', () => {
+        cy.visit('/');
+        cy.contains('categories').click();
+        cy.get('a[role="button"]')
+            .first()
+            .click();
+        cy.url().should('include', '/#/products?filter=');
+    });
 });

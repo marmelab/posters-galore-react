@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Admin, Resource } from 'react-admin';
+import { Admin, Resource, ListGuesser } from 'react-admin';
 import UserIcon from '@material-ui/icons/Group';
 import CollectionsIcon from '@material-ui/icons/Collections';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
 import { Route } from 'react-router-dom';
 
 import { buildProvider } from './backend';
@@ -9,6 +10,7 @@ import { CustomerList, CustomerEdit } from './customer/customers';
 import AppLayout from './layout/AppLayout';
 import { SegmentList } from './customer/segments';
 import { ProductList, ProductCreate, ProductEdit } from './product/products';
+import { CategoryList } from './product/categories';
 
 const App = () => {
     const [dataProvider, setDataProvider] = useState(null);
@@ -37,7 +39,7 @@ const App = () => {
                 create={ProductCreate}
                 edit={ProductEdit}
             />
-            <Resource name="categories" />
+            <Resource name="categories" list={CategoryList} icon={BookmarkIcon} />
             <Resource name="customers" list={CustomerList} icon={UserIcon} edit={CustomerEdit} />
         </Admin>
     );
