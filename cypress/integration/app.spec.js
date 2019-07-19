@@ -65,7 +65,9 @@ describe('Global app Tests', () => {
         cy.contains('div', 'Stock')
             .find('input')
             .type('1');
+        // Save the product creation
         cy.contains('Save').click();
+        // Save the product edition due to redirection
         cy.contains('Save').click();
         cy.contains('Element updated').should('be.visible');
     });
