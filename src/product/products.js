@@ -15,6 +15,9 @@ import {
     ImageField,
     ReferenceInput,
     SelectInput,
+    ReferenceField,
+    ChipField,
+    Filter,
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
 
@@ -67,13 +70,24 @@ export const ProductEdit = props => (
     </Edit>
 );
 
+const ProductsFilter = props => (
+    <Filter {...props}>
+        <ReferenceInput reference="categories" source="category_id" allowEmpty>
+            <SelectInput optionText="name" />
+        </ReferenceInput>
+    </Filter>
+);
+
 export const ProductList = props => (
-    <List {...props}>
+    <List {...props} filters={<ProductsFilter />}>
         <Datagrid rowClick="edit">
             <TextField source="reference" />
             <NumberField source="width" />
             <NumberField source="height" />
             <NumberField source="price" />
+            <ReferenceField source="category_id" reference="categories">
+                <ChipField source="name" />
+            </ReferenceField>
             <EditButton />
         </Datagrid>
     </List>

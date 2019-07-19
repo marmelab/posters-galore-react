@@ -16,18 +16,16 @@ const styles = {
 
 const Menu = ({ classes, resources, onMenuClick, logout }) => (
     <div>
-        {resources
-            .filter(resource => resource.name !== 'categories')
-            .map(resource => (
-                <MenuItemLink
-                    className={classes.menuItem}
-                    key={resource.name}
-                    to={`/${resource.name}`}
-                    primaryText={(resource.options && resource.options.label) || resource.name}
-                    leftIcon={resource.icon && createElement(resource.icon)}
-                    onClick={onMenuClick}
-                />
-            ))}
+        {resources.map(resource => (
+            <MenuItemLink
+                className={classes.menuItem}
+                key={resource.name}
+                to={`/${resource.name}`}
+                primaryText={(resource.options && resource.options.label) || resource.name}
+                leftIcon={resource.icon && createElement(resource.icon)}
+                onClick={onMenuClick}
+            />
+        ))}
         <MenuItemLink
             className={classes.menuItem}
             to="/segments"

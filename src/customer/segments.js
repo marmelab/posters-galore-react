@@ -38,7 +38,7 @@ export const SegmentList = () => (
                         <TableCell>{segment}</TableCell>
                         <TableCell>
                             <Button
-                                href={`#/customers?filter=%7B"groups"%3A%5B"${segment}"}"%5D%7D`}
+                                href={`#/customers?filter=%7B"groups"%3A%5B"${segment}"%5D%7D&page=1&perPage=25`}
                             >
                                 Customers
                             </Button>

@@ -14,7 +14,16 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import './commands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+// Change Cypress behaviour in order to not scroll element to the top of the page
+// https://github.com/cypress-io/cypress/issues/871
+Cypress.on('scrolled', $el => {
+    $el.get(0).scrollIntoView({
+        block: 'center',
+        inline: 'center',
+    });
+});
