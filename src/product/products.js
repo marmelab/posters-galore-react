@@ -70,7 +70,7 @@ export const ProductEdit = props => (
     </Edit>
 );
 
-const ProductFilter = props => (
+const ProductsFilter = props => (
     <Filter {...props}>
         <ReferenceInput reference="categories" source="category_id" allowEmpty>
             <SelectInput optionText="name" />
@@ -79,7 +79,7 @@ const ProductFilter = props => (
 );
 
 export const ProductList = props => (
-    <List {...props} filters={<ProductFilter />}>
+    <List {...props} filters={<ProductsFilter />}>
         <Datagrid rowClick="edit">
             <TextField source="reference" />
             <NumberField source="width" />

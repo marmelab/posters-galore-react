@@ -1,5 +1,8 @@
 describe('Global app Tests', () => {
-    it('Visit the app', () => {
+    const pageSelector = '.list-page';
+    const tabPanelSelector = 'hr + div';
+
+    it('should visit the app', () => {
         cy.visit('/');
         cy.contains('customers').click();
         cy.contains('Add filter').click();
@@ -7,23 +10,26 @@ describe('Global app Tests', () => {
         cy.contains('Visited To').should('be.visible');
     });
 
-    it('Edit customer address', () => {
+    it('should edit customer address', () => {
         cy.visit('/');
         cy.contains('customers').click();
         cy.contains('Edit').click();
         cy.contains('Identity').should('be.visible');
         cy.contains('Address').click();
-        cy.get('input[name="address"]')
+        cy.get(tabPanelSelector)
+            .contains('div', 'Address')
+            .find('input')
             .clear()
             .type('45 rue de la source');
-        cy.get('input[name="zipcode"]')
+        cy.contains('div', 'Zipcode')
+            .find('input')
             .clear()
             .type('75000');
-        cy.get('button[type="submit"]').click();
+        cy.contains('Save').click();
         cy.contains('Element updated').should('be.visible');
     });
 
-    it('Filter customers using segment page', () => {
+    it('should filter customers using segment page', () => {
         cy.visit('/');
         cy.contains('Segments').click();
         cy.get('a[role="button"]')
@@ -32,28 +38,44 @@ describe('Global app Tests', () => {
         cy.url().should('include', '/#/customers?filter=');
     });
 
-    it('Add a new product', () => {
+    it('should add a new product', () => {
         cy.visit('/');
         cy.contains('Products').click();
         cy.contains('Create').click();
-        cy.get('input[name="image"]').type('https://marmelab.com/posters/water-10.jpeg');
-        cy.get('input[name="thumbnail"]').type('https://marmelab.com/posters/water-10.jpeg');
+        cy.get(tabPanelSelector)
+            .contains('div', 'Image')
+            .find('input')
+            .type('https://marmelab.com/posters/water-10.jpeg');
+        cy.contains('div', 'Thumbnail')
+            .find('input')
+            .type('https://marmelab.com/posters/water-10.jpeg');
         cy.contains('Details').click();
-        cy.get('input[name="reference"]').type('sdzpiOjfvdf1');
-        cy.get('input[name="width"]').type('450');
-        cy.get('input[name="height"]').type('10');
-        cy.get('input[name="price"]').type('1000');
-        cy.get('input[name="stock"]').type('1');
-        cy.get('button[type="submit"]').click();
-        cy.get('button[type="submit"]').click();
+        cy.contains('div', 'Reference')
+            .find('input')
+            .type('sdzpiOjfvdf1');
+        cy.contains('div', 'Width')
+            .find('input')
+            .type('450');
+        cy.contains('div', 'Height')
+            .find('input')
+            .type('10');
+        cy.contains('div', 'Price')
+            .find('input')
+            .type('10000');
+        cy.contains('div', 'Stock')
+            .find('input')
+            .type('1');
+        cy.contains('Save').click();
+        cy.contains('Save').click();
         cy.contains('Element updated').should('be.visible');
     });
 
-    it('Filter products using category page', () => {
+    it('should filter products using category page', () => {
         cy.visit('/');
         cy.contains('categories').click();
-        cy.get('a[role="button"]')
-            .first()
+
+        cy.get(pageSelector)
+            .contains('Products')
             .click();
         cy.url().should('include', '/#/products?filter=');
     });

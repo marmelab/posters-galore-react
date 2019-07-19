@@ -14,7 +14,7 @@ export const CategoryList = props => (
 
 const ProductLink = ({ record }) => (
     <Button
-        href={`#/products?filter=%7B"category_id"%3A${record.id}%7D&order=DESC&page=1&perPage=25&sort=id}`}
+        href={`#/products?filter=%7B"category_id"%3A${record.id}%7D&order=DESC&page=1&perPage=25}`}
     >
         Products
     </Button>
